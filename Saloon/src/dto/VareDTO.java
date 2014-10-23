@@ -5,19 +5,19 @@ public class VareDTO {
 	int Vare_id;
 	String Vare_navn;
 	double Varepris;
-	int Antal;
 	
-	public VareDTO(int Vare_id, String Vare_navn, double Varepris, int Antal)
+	public VareDTO(int Vare_id, String Vare_navn, double Varepris)
 	{
 		this.Vare_id = Vare_id;
 		this.Vare_navn = Vare_navn;
 		this.Varepris = Varepris;
-		this.Antal = Antal;
 	}
 	
 	public VareDTO(VareDTO vare)
 	{
-		
+		this.Vare_id = vare.getVareId();
+		this.Vare_navn = vare.getVareNavn();
+		this.Varepris = vare.getVarepris();
 	}
 	
 	public int getVareId()
@@ -39,6 +39,14 @@ public class VareDTO {
 		this.Vare_navn = Vare_navn;
 	}
 	
-	public double getPris
+	public double getVarepris()
+	{
+		return Varepris;
+	}
+	public void setVarepris(double Varepris)
+	{
+		this.Varepris = Varepris;
+	}
+	
 
 }
