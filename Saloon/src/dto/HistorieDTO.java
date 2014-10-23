@@ -15,7 +15,7 @@ public class HistorieDTO {
 		this.Bruger_id = Bruger_id;
 	}
 	
-	public HistorieDTO()
+	public HistorieDTO(HistorieDTO historie)
 	{
 	
 	}
