@@ -5,7 +5,7 @@ public class VareDTO {
 	int Vare_id;
 	String Vare_navn;
 	double Varepris;
-	int Antal;
+	int Antal;////////
 	
 	public VareDTO(int Vare_id, String Vare_navn, double Varepris, int Antal)
 	{
