@@ -2,12 +2,10 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import connector.Connector;
-
 import daoInterfaces.DALException;
 import daoInterfaces.BrugerDAO;
 import dto.BrugerDTO;
@@ -60,7 +58,9 @@ public class MySQLBrugerDAO implements BrugerDAO
 
 	@Override
 	public void updateBruger(BrugerDTO bruger) throws DALException {
-		
+		Connector.doUpdate("UPDATE Bruger SET Bruger_id=+"+bruger.getBrugerId()+", Bruger_navn="+bruger.getBrugerNavn()+","
+				+ " PW="+bruger.getPW()+",WHERE Adresse="+bruger.getAdresse()+",Email="+bruger.getEmail()+",Telefon_nr="+bruger.getTelefonNr()+",Koen="
+				+bruger.getKoen()+",Rolle="+bruger.getRolle()+"WHERE Bruger_id="+bruger.getBrugerId());
 		
 	}
 
@@ -68,6 +68,29 @@ public class MySQLBrugerDAO implements BrugerDAO
 	public void deleteBruger(BrugerDTO bruger) throws DALException {
 		
 		
+	}
+
+
+	@Override
+	public boolean verifyUser(String Username, String Password) throws SQLException{
+	ResultSet rs = null;
+	try {
+		rs = Connector.doQuery("SELECT * FROM Bruger WHERE Bruger_navn = " + Username );
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}	if(rs.getString("PW").equals(Password)){
+			return true;
+		}
+	return false;
+			
+	}
+
+
+	@Override
+	public boolean userExists(String Username) throws DALException {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 
