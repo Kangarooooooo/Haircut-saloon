@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import daoInterfaces.DALException;
 public class Connector {
-
+//hejmedjer
 	public static Connection connectToDatabase(String url, String username, String password)
 			throws InstantiationException, IllegalAccessException,
 					ClassNotFoundException, SQLException
