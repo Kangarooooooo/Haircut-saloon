@@ -2,10 +2,10 @@ package connector;
 
 public class Constant {
 	public static final String
-	server					= "127.0.0.1",  // database-serveren
-	database				= "test",  //"jdbcdatabase", // navnet paa din database = dit studienummer
-	username				= "root", // dit brugernavn = dit studienummer 
-	password				= "password"; //
+	server					= "sql-lab1.cc.dtu.dk",  // database-serveren
+	database				= "s123006",  //"jdbcdatabase", // navnet paa din database = dit studienummer
+	username				= "s123006", // dit brugernavn = dit studienummer 
+	password				= "hanna1"; //
 
 public static final int
 	port					= 3306;

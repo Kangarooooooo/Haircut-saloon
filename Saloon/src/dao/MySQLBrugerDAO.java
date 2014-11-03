@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.ObjectInputStream.GetField;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -72,17 +73,22 @@ public class MySQLBrugerDAO implements BrugerDAO
 
 
 	@Override
-	public boolean verifyUser(String Username, String Password) throws SQLException{
+	public boolean verifyUser(String Username, String Password) throws DALException{
 	ResultSet rs = null;
 	try {
 		rs = Connector.doQuery("SELECT * FROM Bruger WHERE Bruger_navn = " + Username );
-	} catch (SQLException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}	if(rs.getString("PW").equals(Password)){
+		if(!rs.first()) throw new DALException("Brugeren " + Username + " eksisterer ikke");
+		if(rs.getString("PW").equals(Password)){
 			return true;
 		}
-	return false;
+		else{
+			return false;
+		}
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+		throw new DALException(e);
+	}
 			
 	}
 
@@ -93,5 +99,6 @@ public class MySQLBrugerDAO implements BrugerDAO
 		return false;
 	}
 	
+
 
 }
