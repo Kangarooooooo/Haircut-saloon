@@ -5,9 +5,9 @@ import daoInterfaces.DALException;
 import dto.BrugerDTO;
 
 import java.sql.SQLException;
-
 import connector.Connector;
-public class mainTest {
+
+public class MainTest {
 
 	public static void main(String[] args){
 		MySQLBrugerDAO test = new MySQLBrugerDAO();
